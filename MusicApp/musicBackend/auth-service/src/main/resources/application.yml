@@ -1,0 +1,8 @@
+
+spring:
+  application:
+    name: music-auth-service
+
+eureka:
+  instance:
+    hostname: localhost

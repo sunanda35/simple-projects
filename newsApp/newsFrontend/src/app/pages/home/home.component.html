@@ -1,0 +1,59 @@
+<!-- <div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row mt20">
+            <div class="col-md-6 offset-md-3 text-center" >
+                <h1 class="text-center">News Application</h1>
+                <h2 *ngIf="user">Hi {{user?.firstName}}</h2>    
+            
+            </div>
+        </div>
+    </div>
+</div>  -->
+
+<div class="container-fluid" style="margin-top: 20px">
+  <h1 class="text-center text-info text-capitalize">
+    {{ category ?? "Top" }} Headlines
+  </h1>
+  <marquee class="col-lg-8 d-flex justify-content-center"
+    >Get Instant News on Every Click !!</marquee
+  >
+  <div style="display: flex; width: 40%; margin-left: auto; margin-right: auto">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search News"
+      [(ngModel)]="searchTerm"
+      (input)="searchTextChange()"
+    />
+    <button class="btn btn-outline-success" (click)="searchData()">
+      search
+    </button>
+  </div>
+  <div class="row" style="margin-top: 20px">
+    <div
+      *ngFor="let newsData of topHeadlinesData"
+      class="col-lg-3"
+      style="margin-top: 20px; margin-bottom: 20px"
+    >
+      <div class="box">
+        <img src="{{ newsData.urlToImage }}" width="100%" alt="" />
+        <h5 style="margin-top: 5px; margin-bottom: 3px">
+          <b>{{ newsData.title }}</b>
+        </h5>
+        <p>{{ newsData.content }}</p>
+        <!--    <h3>{{newsData.author}}</h3>   -->
+        <div class="d-flex justify-content-between">
+          <a
+            class="btn btn-dark btn-sm"
+            target="_blank"
+            href="{{ newsData.url }}"
+            >Read More</a
+          >
+          <button class="btn btn-dark btn-sm" (click)="addFavourite(newsData)">
+            Add to Fav
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

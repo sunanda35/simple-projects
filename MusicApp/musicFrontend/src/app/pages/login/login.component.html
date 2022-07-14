@@ -1,0 +1,118 @@
+<!-- <div class="main-div">
+  <form [formGroup]="formGroup" (ngSubmit)="loginUser()">
+    <h4 class="row" style="font-size: 1.5rem; font-weight: bold">
+      Login to Nutritionist
+    </h4>
+    <div class="row">
+      <label for="email">UserName</label>
+      <input
+        type="email"
+        name="email"
+        autocomplete="off"
+        formControlName="userName"
+        placeholder="Loora999"
+      />
+    </div>
+    <div class="row">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        name="password"
+        placeholder="**********"
+        formControlName="password"
+      />
+    </div>
+    <button type="submit">Login</button><br />
+    <br />
+    <p style="display: flex">
+      Don't have an account? &nbsp; <a routerLink="/registration"> Register</a>
+    </p>
+  </form>
+</div> -->
+
+<section class="vh-150" style="background-color: #9a616d">
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem">
+          <div class="row">
+            <div class="col-md-6 col-lg-6 d-none d-md-block">
+              <img
+                src="../../../assets/music-login.jpeg"
+                alt="login form"
+                class="img-fluid h-100"
+                style="border-radius: 1rem 0 0 1rem"
+              />
+            </div>
+            <div class="col-md-4 col-lg-6 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+                <form [formGroup]="formGroup" (ngSubmit)="loginUser()">
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <span class="h1 fw-bold mb-0" style="color: #9a616d"
+                      >Music App</span
+                    >
+                  </div>
+
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
+                    Sign into your account
+                  </h5>
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label">User Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="userName"
+                    />
+                    <div
+                      class="form-text text-danger"
+                      *ngIf="Username.errors?.['required']"
+                    >
+                      *Username is required
+                    </div>
+                  </div>
+
+                  <div class="form-outline mb-3">
+                    <label class="form-label">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      formControlName="password"
+                    />
+                    <div
+                      class="form-text text-danger"
+                      *ngIf="Password.errors?.['required'] && (Password.touched || Password.dirty)"
+                    >
+                      *Password is required
+                    </div>
+                    <div
+                      class="form-text text-danger"
+                      *ngIf="Password.errors?.['minlength']"
+                    >
+                      *Password should be atleast 6 characters
+                    </div>
+                  </div>
+
+                  <div class="pt-1 mb-3">
+                    <button class="btn btn-dark btn-block" type="submit">
+                      Login
+                    </button>
+                  </div>
+
+                  <p class="mb-5 pb-lg-2" style="color: #393f81">
+                    Don't have an account?
+                    <a routerLink="/registration" style="color: #393f81"
+                      >Register here</a
+                    >
+                  </p>
+                  <a href="#!" class="small text-muted">Terms of use.</a>
+                  <a href="#!" class="small text-muted">Privacy policy</a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

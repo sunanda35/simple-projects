@@ -1,0 +1,8 @@
+
+spring:
+  application:
+    name: news-app
+
+eureka:
+  instance:
+    hostname: localhost

@@ -1,0 +1,42 @@
+<header class="header">
+  <a href="/" class="logo">Music App</a>
+  <button class="header__btn_open-topnav header__btn">
+    <span class="icon-menu-open"></span>
+  </button>
+  <ul class="topnav topnav_mobile_show">
+    <li class="topnav__item">
+      <a class="topnav__link" routerLink="/favorite">Favorite</a>
+    </li>
+
+    <li class="topnav__item">
+      <a class="topnav__link" (click)="logoutUser()">Log Out</a>
+    </li>
+  </ul>
+</header>
+<h1 style="margin-left: 45%">Recomended</h1>
+<!-- *ngIf="dataLength > 0; else noFoods" -->
+<div class="nutri" *ngIf="dataLength > 0; else noFoods">
+  <!-- *ngFor="let obj of foodData" -->
+
+  <div class="nutri-data" *ngFor="let obj of tracks">
+    <div class="ub-text-card__content">
+      <div class="nutri_header">
+        <h4>{{ obj?.albumName }}</h4>
+      </div>
+      <!-- <p>{{ obj?.artistName }}</p> -->
+      <div>
+        <audio controls>
+          <source src="{{ obj?.previewURL }}" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+    <div class="flowButton" (click)="addFavorite(obj?.id)">Add To Favorite</div>
+  </div>
+</div>
+
+<ng-template #noFoods>
+  <div style="margin-top: 5%; display: flex; justify-content: center">
+    <h1>Loading ...</h1>
+  </div>
+</ng-template>

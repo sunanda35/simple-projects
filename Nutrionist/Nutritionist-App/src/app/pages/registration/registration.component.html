@@ -1,0 +1,104 @@
+<section class="vh-150" style="background-color: #9a616d">
+  <div class="container py-5">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem">
+          <div class="row">
+            <div class="col-md-6 col-lg-6 d-none d-md-block">
+              <img
+                src="../../assets/login-photo.jpg"
+                alt="login form"
+                class="img-fluid h-100"
+                style="border-radius: 1rem 0 0 1rem"
+              />
+            </div>
+            <div class="col-md-6 col-lg-6 d-flex align-items-center">
+              <div class="card-body text-black">
+                <form
+                  [formGroup]="registerFormGroup"
+                  (ngSubmit)="registerUser()"
+                >
+                  <div class="d-flex align-items-center mb-1 pb-1">
+                    <span class="h1 fw-bold mb-0" style="color: #9a616d"
+                      >Nutritionist App</span
+                    >
+                  </div>
+
+                  <h5 class="fw-normal mb-1 pb-1" style="letter-spacing: 1px">
+                    Register Yourself!!
+                  </h5>
+
+                  <div class="form-outline mb-3">
+                    <label class="form-label">Username</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      formControlName="userName"
+                    />
+                    <div
+                      class="form-text text-danger"
+                      *ngIf="Username.errors?.['required'] && Username.touched"
+                    >
+                      *Username is required
+                    </div>
+                  </div>
+
+                  <div class="form-outline mb-3">
+                    <label class="form-label">Email address</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      formControlName="email"
+                    />
+                    <div
+                      class="form-text text-danger"
+                      *ngIf="Email.errors?.['required'] && Email.touched"
+                    >
+                      *Email Id is required
+                    </div>
+                    <div
+                      class="form-text text-danger"
+                      *ngIf="Email.errors?.['email']"
+                    >
+                      *Email Id is invalid
+                    </div>
+                  </div>
+
+                  <div class="form-outline mb-3">
+                    <label class="form-label">Password</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      formControlName="password"
+                    />
+                    <div
+                      class="form-text text-danger"
+                      *ngIf="Password.errors?.['required'] && Password.touched"
+                    >
+                      *Password is required
+                    </div>
+                  </div>
+
+                  <div class="pt-1 mb-4">
+                    <button class="btn btn-dark btn-block" type="submit">
+                      Register
+                    </button>
+                  </div>
+
+                  <p class="mb-4 pb-lg-2" style="color: #393f81">
+                    Already have an account?
+                    <a routerLink="/login" style="color: #393f81"
+                      >Click here to Login</a
+                    >
+                  </p>
+                  <a href="#!" class="small text-muted">Terms of use.</a>
+                  <a href="#!" class="small text-muted">Privacy policy</a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

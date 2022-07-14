@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: wish-list-service
+
+eureka:
+  instance:
+    hostname: localhost

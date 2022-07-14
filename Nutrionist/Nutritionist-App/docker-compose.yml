@@ -1,0 +1,9 @@
+version: "3.5"
+
+services:
+  nutri_frontend_service:
+    image: nutritionist-frontend
+    ports:
+      - 4200:4200
+    command: >
+      bash -c "npm start"

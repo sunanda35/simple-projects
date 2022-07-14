@@ -1,0 +1,45 @@
+<header class="header">
+  <a href="/" class="logo"> Nutritionist</a>
+  <button class="header__btn_open-topnav header__btn">
+    <span class="icon-menu-open"></span>
+  </button>
+  <ul class="topnav topnav_mobile_show">
+    <li class="topnav__item">
+      <a class="topnav__link" routerLink="/">Home</a>
+    </li>
+
+    <li class="topnav__item">
+      <a class="topnav__link" (click)="logoutUser()">Log Out</a>
+    </li>
+  </ul>
+</header>
+<div class="nutri" *ngIf="favoriteData.length > 0; else noFavFoods">
+  <!-- <div *ngFor="let obj of favoriteData">fuck</div> -->
+  <div class="nutri-data" *ngFor="let obj of favoriteData">
+    <div class="ub-text-card__content">
+      <div class="nutri_header">
+        <h4>{{ obj?.description || "N/A" }} ({{ obj?.dataType || "n/a" }})</h4>
+      </div>
+      <p class="ub-text-card__text--small"></p>
+      <h3 style="font-weight: bold">Nutrients</h3>
+      <div class="nutri_text">
+        <div *ngFor="let nutri of obj?.foodNutrients">
+          <p>
+            <span style="font-weight: bold">{{
+              nutri?.nutrient?.name || "n/a"
+            }}</span
+            >: {{ nutri?.nutrient?.number || "n/a"
+            }}{{ nutri?.nutrient?.unitName || "n/a" }},
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="flowButton" (click)="deleteFavourite(obj?.fdcId)">Remove</div>
+  </div>
+</div>
+
+<ng-template #noFavFoods>
+  <div style="margin-top: 10%; display: flex; justify-content: center">
+    <h1>No Favorite Food Item Available :(</h1>
+  </div>
+</ng-template>

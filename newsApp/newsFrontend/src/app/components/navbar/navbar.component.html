@@ -1,0 +1,99 @@
+<!-- <mat-toolbar color="primary" >
+  <a
+    routerLink="/"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu_book</mat-icon>
+  </a>
+  <span>News</span>
+  <span class="example-spacer"></span>
+
+  <a
+  *ngIf="!user"
+    [routerLink]="'/login'"
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
+    Login
+  </a>
+  <a
+  *ngIf="!user"
+    [routerLink]="'/signup'"
+    mat-icon-button
+    class="example-icon favorite-icon mr20 ml20"
+    aria-label="Example icon-button with heart icon"
+  >
+    Signup
+  </a>
+  <a *ngIf="user"   mat-icon-button
+  class="example-icon favorite-icon mr20 ml20" >{{user.firstName }}</a>
+  <button *ngIf="user"  mat-icon-button
+  class="example-icon favorite-icon mr20 ml20"  (click)="logout()">Logout</button> -->
+<!-- <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon>share</mat-icon>
+  </button> -->
+<!-- </mat-toolbar> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">NewsApp</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="user">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="technology">TechNews</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="business">Business</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="sports">Sports</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="science">Science</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="entertainment">Entertainment</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/favourites">Favourite</a>
+        </li>
+      </ul>
+
+      <ul *ngIf="!user" class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+      <div class="">
+        <div  class="d-flex" style="gap: 10px" *ngIf="!user">
+          <a class="nav-item btn btn-primary" [routerLink]="'/login'"> Login </a>
+          <a class="nav-item btn btn-primary" [routerLink]="'/signup'"> Signup </a>
+        </div>
+
+        <div *ngIf="user" class="d-flex" style="gap: 10px">
+          <a class="nav-item btn btn-secondary">{{ user.firstName }}</a>
+          <button class="nav-item btn btn-danger" (click)="logout()">
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

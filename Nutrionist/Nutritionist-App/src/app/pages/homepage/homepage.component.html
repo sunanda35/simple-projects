@@ -1,0 +1,61 @@
+<header class="header">
+  <a href="/" class="logo"> Nutritionist</a>
+  <button class="header__btn_open-topnav header__btn">
+    <span class="icon-menu-open"></span>
+  </button>
+  <ul class="topnav topnav_mobile_show">
+    <li class="topnav__item">
+      <a class="topnav__link" routerLink="/favorite">Favorite</a>
+    </li>
+
+    <li class="topnav__item">
+      <a class="topnav__link" (click)="logoutUser()">Log Out</a>
+    </li>
+  </ul>
+</header>
+
+<div class="search">
+  <div class="search-box">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search ...."
+      [(ngModel)]="searchValue"
+      ((input))="searchTextChange()"
+    />
+    <button class="search-button" (click)="search()">Search</button>
+  </div>
+</div>
+<!-- *ngIf="dataLength > 0; else noFoods" -->
+<div class="nutri" *ngIf="dataLength > 0; else noFoods">
+  <!-- *ngFor="let obj of foodData" -->
+
+  <div class="nutri-data" *ngFor="let obj of foodData">
+    <div class="ub-text-card__content">
+      <div class="nutri_header">
+        <h4>{{ obj?.description || "N/A" }} ({{ obj?.dataType || "n/a" }})</h4>
+      </div>
+      <p class="ub-text-card__text--small"></p>
+      <h3 style="font-weight: bold">Nutrients</h3>
+      <!-- *ngFor="let nutri of obj?.foodNutrients" -->
+      <div class="nutri_text">
+        <div *ngFor="let nutri of obj?.foodNutrients">
+          <p>
+            <span style="font-weight: bold">{{
+              !searchDataValue ? nutri?.name : nutri?.nutrientName || "n/a"
+            }}</span
+            >: {{ !searchDataValue ? nutri?.amount : nutri?.value || "n/a"
+            }}{{ nutri?.unitName || "n/a" }},
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="flowButton" (click)="addFavorite(obj?.fdcId)">Add</div>
+  </div>
+</div>
+
+<ng-template #noFoods>
+  <div style="margin-top: 5%; display: flex; justify-content: center">
+    <h1>Loading ...</h1>
+  </div>
+</ng-template>
